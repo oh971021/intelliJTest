@@ -6,11 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class Controller {
 
     @GetMapping("/")
-    public String getHome() {
-        return "home";
-    }
+    public String getHome() { return "index"; }
 
     @GetMapping("/nexacro")
     public String getNexacro() { return "jsptest"; }
-
 }
