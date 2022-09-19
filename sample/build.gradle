@@ -1,0 +1,40 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.12-SNAPSHOT'
+	id 'io.spring.dependency-management' version '1.0.13.RELEASE'
+	id 'java'
+	id 'war'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
+	maven { url 'https://repo.spring.io/snapshot' }
+}
+
+dependencies {
+	// Spring-boot Setting (Web, Cotroller, Tomcat ...)
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+
+	// Test Starter
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	// LomBok (RestController)
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	// JSP 연동 -- Tomcat이 JSP File 읽을 수 있도록 (JSP 다 MyBatis로 넘기면 안써도 됨)
+	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+	implementation 'javax.servlet:jstl'
+
+	// 외부 Libs (jar file)
+	implementation fileTree(dir: 'libs', includes: ['*.jar'])
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
