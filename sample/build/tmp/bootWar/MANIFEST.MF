@@ -1,2 +1,8 @@
 Manifest-Version: 1.0
+Spring-Boot-Layers-Index: WEB-INF/layers.idx
+Start-Class: com.example.sample.SampleApplication
+Spring-Boot-Classes: WEB-INF/classes/
+Spring-Boot-Lib: WEB-INF/lib/
+Spring-Boot-Version: 2.6.12-SNAPSHOT
+Main-Class: org.springframework.boot.loader.WarLauncher
 

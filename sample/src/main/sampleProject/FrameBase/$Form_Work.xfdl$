@@ -72,6 +72,7 @@ this.fn_callback = function(svcId, eCode, eMsg)
 this.Button01_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
 	this.alert("제발...");
+	this.alert("과연...?");
 };
 
 ]]></Script>

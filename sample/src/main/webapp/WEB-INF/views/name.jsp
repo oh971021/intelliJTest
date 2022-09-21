@@ -6,7 +6,7 @@
    try{
       String sql = "";
 
-      sql  = " select BIRTH, NAME, SABUN from TEST.TEST_INSA";
+      sql  = "select BIRTH, NAME, SABUN from TEST.TEST_INSA";
 
       stmt   = conn.createStatement();
       rs     = stmt.executeQuery(sql);

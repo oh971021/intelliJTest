@@ -21,6 +21,9 @@ dependencies {
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+//	// Mybatis (.jar 는 외부 라이브러리로)
+//	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4'
+
 	// LomBok (RestController)
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'

@@ -17,10 +17,16 @@ spring:
     password: 1234
   main:
     allow-bean-definition-overriding: true
-  # 자동 리펙토링 (수정 시 즉각 반영)
+  # 자동 리펙토링 (수정 시 즉각 반영) _ 왜 안될까..
   devtools:
     livereload:
       enabled: true
     remote:
       restart:
         enabled: true
+  freemarker:
+    cache: false
+
+## Mybatis Mapper Path
+#mybatis:
+#  mapper-locations: classpath:mapper/**.xml

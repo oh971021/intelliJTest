@@ -79,6 +79,7 @@
         this.Button01_onclick = function(obj,e)
         {
         	this.alert("제발...");
+        	this.alert("과연...?");
         };
 
 
