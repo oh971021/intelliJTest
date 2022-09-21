@@ -2,6 +2,7 @@ package com.example.sample.config;
 
 import com.nexacro.uiadapter17.spring.core.context.ApplicationContextProvider;
 import com.nexacro.uiadapter17.spring.core.resolve.NexacroHandlerMethodReturnValueHandler;
+import com.nexacro.uiadapter17.spring.core.resolve.NexacroMappingExceptionResolver;
 import com.nexacro.uiadapter17.spring.core.resolve.NexacroMethodArgumentResolver;
 import com.nexacro.uiadapter17.spring.core.resolve.NexacroRequestMappingHandlerAdapter;
 import com.nexacro.uiadapter17.spring.core.view.NexacroFileView;
@@ -13,12 +14,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
+import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 
 import java.util.List;
 
 @Configuration
-public class NexacroConfig extends WebMvcConfig implements WebMvcRegistrations {
+public class NexacroConfig extends WebAppConfig implements WebMvcRegistrations {
 
     @Bean
     @Lazy(false)
@@ -54,5 +56,28 @@ public class NexacroConfig extends WebMvcConfig implements WebMvcRegistrations {
         handlers.add(returnValueHandler);
 
         super.addReturnValueHandlers(handlers);
+    }
+
+    /**
+     * 넥사크로플랫폼 에러 처리 ExceptionResolver 등록
+     */
+    @Override
+    public void configureHandlerExceptionResolvers(List<HandlerExceptionResolver> resolvers) {
+
+        NexacroView nexacroView = new NexacroView();
+        nexacroView.setDefaultContentType(PlatformType.CONTENT_TYPE_XML);
+        nexacroView.setDefaultCharset("UTF-8");
+
+        NexacroMappingExceptionResolver nexacroException = new NexacroMappingExceptionResolver();
+
+        nexacroException.setView(nexacroView);
+        nexacroException.setShouldLogStackTrace(true);
+        nexacroException.setShouldSendStackTrace(true);
+        nexacroException.setDefaultErrorMsg("fail.common.msg");
+        nexacroException.setMessageSource(messageSource());
+        nexacroException.setOrder(1);
+        resolvers.add(nexacroException);
+
+        super.configureHandlerExceptionResolvers(resolvers);
     }
 }

@@ -1,0 +1,26 @@
+# Server 셋팅
+server:
+  # Tomcat Server Port Setting
+  port: 9999
+  # JSP 수정 시 서버 재시작 없이 적용
+  servlet:
+    jsp:
+      registered: true
+
+# Spring 셋팅
+spring:
+  # Mybatis 연결
+  datasource:
+    driver-class-name: com.tmax.tibero.jdbc.TbDriver
+    url: jdbc:tibero:thin:@localhost:8629:tbtest
+    username: sys
+    password: 1234
+  main:
+    allow-bean-definition-overriding: true
+  # 자동 리펙토링 (수정 시 즉각 반영)
+  devtools:
+    livereload:
+      enabled: true
+    remote:
+      restart:
+        enabled: true

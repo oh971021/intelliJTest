@@ -8,11 +8,12 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @SpringBootApplication
 public class SampleApplication {
 
+	// Application run Method
 	public static void main(String[] args) {
 		SpringApplication.run(SampleApplication.class, args);
-		System.out.println("서버연결완료!");
 	}
 
+	// View Path (구 JSP 연동을 위해.. )
 	@Bean
 	public InternalResourceViewResolver setupViewResolver() {
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
@@ -20,5 +21,4 @@ public class SampleApplication {
 		resolver.setSuffix(".jsp");
 		return resolver;
 	}
-
 }

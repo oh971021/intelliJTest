@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="tbtest@localhost" uuid="24d60ef3-eebb-4b48-b069-f24096017462">
+    <data-source source="LOCAL" name="tbtest@localhost" uuid="3ff4ff8b-89b7-4975-935d-e5bf2e6055f2">
       <driver-ref>tibero</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.tmax.tibero.jdbc.TbDriver</jdbc-driver>

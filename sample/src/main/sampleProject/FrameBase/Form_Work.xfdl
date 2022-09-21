@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Form_Work" width="1280" height="720" titletext="Form_Work">
+    <Layouts>
+      <Layout width="1280" height="720" screenid="Desktop_screen">
+        <Button id="Button00" taborder="0" text="JSP 테스트" left="26" top="22" width="164" height="48" onclick="Button00_onclick"/>
+        <Button id="Button01" taborder="1" text="Mybatis 테스트" left="320" top="22" width="164" height="48" onclick="Button01_onclick"/>
+        <Grid id="Grid00" taborder="2" left="27" top="79" width="280" height="382" binddataset="Ds" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row band="head" size="24"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="SABUN"/>
+                <Cell col="1" text="NAME"/>
+                <Cell col="2" text="BIRTH"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:SABUN"/>
+                <Cell col="1" text="bind:NAME"/>
+                <Cell col="2" text="bind:BIRTH"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="Grid00_00" taborder="3" left="320" top="79" width="280" height="382" binddataset="Ds" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row band="head" size="24"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="SABUN"/>
+                <Cell col="1" text="NAME"/>
+                <Cell col="2" text="BIRTH"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:SABUN"/>
+                <Cell col="1" text="bind:NAME"/>
+                <Cell col="2" text="bind:BIRTH"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.transaction("select", "svc::nexacro", "", "Ds=Ds", "", "fn_callback");
+};
+
+this.fn_callback = function(svcId, eCode, eMsg) 
+{
+	if (eCode != 0) this.alert(eMsg);
+}
+
+
+this.Button01_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.alert("제발...");
+};
+
+]]></Script>
+    <Objects>
+      <Dataset id="Ds">
+        <ColumnInfo>
+          <Column id="SABUN" type="STRING" size="256"/>
+          <Column id="NAME" type="STRING" size="256"/>
+          <Column id="BIRTH" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

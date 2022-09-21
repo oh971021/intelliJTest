@@ -7,7 +7,7 @@ plugins {
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = '1.8'
 
 repositories {
 	mavenCentral()
@@ -16,11 +16,9 @@ repositories {
 }
 
 dependencies {
-	// Spring-boot Setting (Web, Cotroller, Tomcat ...)
+	// Spring Basic Set
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
-
-	// Test Starter
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 	// LomBok (RestController)
@@ -33,6 +31,9 @@ dependencies {
 
 	// 외부 Libs (jar file)
 	implementation fileTree(dir: 'libs', includes: ['*.jar'])
+
+	// 자동 리펙토링 (수정 시 즉각 반영)
+	developmentOnly("org.springframework.boot:spring-boot-devtools")
 }
 
 tasks.named('test') {
