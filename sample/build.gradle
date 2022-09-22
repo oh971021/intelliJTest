@@ -13,6 +13,7 @@ repositories {
 	mavenCentral()
 	maven { url 'https://repo.spring.io/milestone' }
 	maven { url 'https://repo.spring.io/snapshot' }
+	maven { url 'https://mangosteen.tobesoft.co.kr/nexus/repository/maven-public' }
 }
 
 dependencies {
@@ -20,9 +21,13 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.springframework.boot:spring-boot-starter-aop'
 
-//	// Mybatis (.jar 는 외부 라이브러리로)
-//	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4'
+//	// yml 암호화
+//	implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.3'
+
+	// Mybatis
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.3'
 
 	// LomBok (RestController)
 	compileOnly 'org.projectlombok:lombok'
@@ -37,6 +42,9 @@ dependencies {
 
 	// 자동 리펙토링 (수정 시 즉각 반영)
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
+
+	// JSON
+	implementation 'com.google.code.gson:gson:2.8.5'
 }
 
 tasks.named('test') {

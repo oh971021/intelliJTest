@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="MainFrame" width="1600" height="800" onload="MainFrame_onload" scrolltype="both">
+    <Layouts>
+      <Layout height="800" width="1600">
+        <Div id="div_main" taborder="0" left="0" top="0" right="0" bottom="0" minwidth="1250" maxwidth=""/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.Popup_Login = function()
+{
+	var objNew = new ChildFrame();
+		objNew.init("Login",0,0,237,440,null,null,"Main::Login.xfdl");
+		this.addChild("Login",objNew);
+		//objNew.init("Login","absolute",null,null,null,null,null,null,"Main::Login.xfdl",this);
+		objNew.set_openalign("center middle");
+		//objNew.style.set_overlaycolor("#f3f4f5ff");
+		objNew.set_showtitlebar(false);
+		objNew.showModal("Login",this.getOwnerFrame(),{},this,this.fn_Callback);
+}
+
+this.MainFrame_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.Popup_Login();
+};
+
+this.fn_Callback = function(strID, vArgu)
+{
+	this.removeChild("Login");
+	if (vArgu == -1)
+	{
+		nexacro.getApplication().exit();
+	}
+	else
+	{
+		this.div_main.set_url("Main::WorkMain.xfdl");
+	}
+	
+	this.removeChild("Login");
+	
+	
+}
+]]></Script>
+  </Form>
+</FDL>

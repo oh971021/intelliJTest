@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="WorkMain" width="1600" height="800" onsize="WorkMain_onsize" ontimer="WorkMain_ontimer" onload="WorkMain_onload" scrolltype="none">
+    <Layouts>
+      <Layout height="800" width="1600">
+        <Static id="Static00" taborder="0" left="0" top="0" height="40" right="0" background="#10aea9"/>
+        <Static id="Static01" taborder="1" left="0" top="40" height="80" right="0" background="#3cbcb8"/>
+        <Div id="div_work" taborder="2" text="div_work" left="0" top="120" right="0" bottom="0" url="Main::WorkBody.xfdl" minwidth="1250" maxwidth=""/>
+        <Div id="div_menu" taborder="3" text="Div01" left="175" top="0" width="1250" height="120" minwidth="1250" maxwidth="" url="Main::WorkMain_top.xfdl"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.WorkMain_onsize = function(obj:nexacro.Form,e:nexacro.SizeEventInfo)
+{
+	this.setTimer(0,1);	
+};
+
+this.WorkMain_ontimer = function(obj:nexacro.Form,e:nexacro.TimerEventInfo)
+{
+	var l;	
+	if (obj.getOffsetWidth()  < 1250) 
+	{
+		l = 0;
+		this.div_work.move(0,120,1250,null,null,0);
+	}
+	else
+	{
+		l =  (obj.getOffsetWidth() - 1250) / 2;
+		this.div_work.move(0,120,null,null,0,0);
+	}
+	this.div_menu.move(l,0,1250,120,null,null);
+	this.killTimer(0);
+};
+
+this.WorkMain_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	var ap = nexacro.getApplication();
+	ap.gv_WorkFrame = this;
+	this.setTimer(0,1);
+};
+
+]]></Script>
+  </Form>
+</FDL>

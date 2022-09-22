@@ -22,17 +22,20 @@ import java.util.List;
 @Configuration
 public class NexacroConfig extends WebAppConfig implements WebMvcRegistrations {
 
+    /** Spring ApplicationContext */
     @Bean
     @Lazy(false)
     public ApplicationContextProvider applicationContextProvider() {
         return new ApplicationContextProvider();
     }
 
+    /** 넥사크로 RequestMapiingHandlerAdapter */
     @Override
     public RequestMappingHandlerAdapter getRequestMappingHandlerAdapter() {
         return new NexacroRequestMappingHandlerAdapter();
     }
 
+    /** 넥사크로 ArgumentResolver */
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
         NexacroMethodArgumentResolver nexacroResolver = new NexacroMethodArgumentResolver();
@@ -40,6 +43,7 @@ public class NexacroConfig extends WebAppConfig implements WebMvcRegistrations {
         super.addArgumentResolvers(resolvers);
     }
 
+    /** 넥사크로 ReturnValueHandler */
     @Override
     public void addReturnValueHandlers(List<HandlerMethodReturnValueHandler> handlers) {
 

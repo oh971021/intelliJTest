@@ -46,6 +46,7 @@
             var frame0 = new ChildFrame("WorkFrame",null,null,null,null,null,null,"FrameBase::Form_Work.xfdl",this);
             frame0.set_showtitlebar("false");
             frame0.set_showstatusbar("false");
+            frame0.set_openstatus("maximize");
             this.addChild(frame0.name, frame0);
             frame0.set_formurl("FrameBase::Form_Work.xfdl");
 

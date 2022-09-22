@@ -1,4 +1,4 @@
-<%@ page pageEncoding='euc-kr' %> 
+<%@ page pageEncoding='euc-kr' %>
 <%@ include file = "dbconnect/Tdbconnect.jsp" %>
 <%                                     
    Statement       stmt    = null;
@@ -40,7 +40,7 @@
            if (stmt != null)   try { stmt.close();     } catch (SQLException se) {}
            if (conn != null)   try { conn.close();     } catch (SQLException se) {}
   }
-  
+
    new PlatformResponse(response, PlatformRequest.XML, char_set).sendData(outVl, outDl);
 
 

@@ -20,6 +20,11 @@
             obj = new Dataset("Ds", this);
             obj._setContents("<ColumnInfo><Column id=\"SABUN\" type=\"STRING\" size=\"256\"/><Column id=\"NAME\" type=\"STRING\" size=\"256\"/><Column id=\"BIRTH\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
+
+
+            obj = new Dataset("MyDs", this);
+            obj._setContents("<ColumnInfo><Column id=\"SABUN\" type=\"STRING\" size=\"256\"/><Column id=\"NAME\" type=\"STRING\" size=\"256\"/><Column id=\"BIRTH\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            this.addChild(obj.name, obj);
             
             // UI Components Initialize
             obj = new Button("Button00","26","22","164","48",null,null,null,null,null,null,this);
@@ -41,7 +46,7 @@
 
             obj = new Grid("Grid00_00","320","79","280","382",null,null,null,null,null,null,this);
             obj.set_taborder("3");
-            obj.set_binddataset("Ds");
+            obj.set_binddataset("MyDs");
             obj.set_autofittype("col");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row band=\"head\" size=\"24\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"SABUN\"/><Cell col=\"1\" text=\"NAME\"/><Cell col=\"2\" text=\"BIRTH\"/></Band><Band id=\"body\"><Cell text=\"bind:SABUN\"/><Cell col=\"1\" text=\"bind:NAME\"/><Cell col=\"2\" text=\"bind:BIRTH\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
@@ -78,8 +83,7 @@
 
         this.Button01_onclick = function(obj,e)
         {
-        	this.alert("제발...");
-        	this.alert("과연...?");
+        	this.transaction("select", "svc::test", "", "MyDs=output1", "", "fn_callback");
         };
 
 

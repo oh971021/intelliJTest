@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="WorkMain_top" width="1250" height="120" titletext="New Form" font="normal 11pt/normal &quot;Arial&quot;">
+    <Layouts>
+      <Layout height="120" width="1250">
+        <Static id="Static00" taborder="0" left="0" top="0" width="1250" height="40" background="#10aea9"/>
+        <Div id="div_menu" taborder="1" left="0" top="40" width="1250" bottom="0" background="#3cbcb8">
+          <Layouts>
+            <Layout>
+              <ImageViewer id="img_logo" taborder="0" left="0" top="15" width="150" height="50" image="url('Img::logo.png')" stretch="none" background="#3cbcb8" border="0px none" onclick="div_menu_img_logo_onclick"/>
+              <Button id="btn_hr" taborder="1" text="인사관리" left="240" top="25" width="100" height="30" border="0px none" borderRadius="15px" onclick="div_menu_btn_hr_onclick" cssclass="btn_normal"/>
+              <Button id="btn_ac" taborder="2" text="회계관리" left="370" top="25" width="100" height="30" border="0px none" borderRadius="15px" onclick="div_menu_btn_hr_onclick" cssclass="btn_normal"/>
+              <Button id="btn_sd" taborder="3" text="영업관리" left="500" top="25" width="100" height="30" border="0px none" borderRadius="15px" onclick="div_menu_btn_hr_onclick" cssclass="btn_normal"/>
+              <Button id="btn_mk" taborder="4" text="제작관리" left="630" top="25" width="100" height="30" border="0px none" borderRadius="15px" onclick="div_menu_btn_hr_onclick" cssclass="btn_normal"/>
+              <Button id="btn_ed" taborder="5" text="편집관리" left="760" top="25" width="100" height="30" border="0px none" borderRadius="15px" onclick="div_menu_btn_hr_onclick" cssclass="btn_normal"/>
+              <Button id="btn_bi" taborder="6" text="경영정보관리" left="890" top="25" width="100" height="30" border="0px none" borderRadius="15px" onclick="div_menu_btn_hr_onclick" cssclass="btn_normal"/>
+              <Button id="btn_et" taborder="7" text="기타업무관리" left="1020" top="25" width="100" height="30" border="0px none" borderRadius="15px" onclick="div_menu_btn_hr_onclick" cssclass="btn_normal"/>
+              <Button id="btn_gw" taborder="8" text="전자결재" left="1150" top="25" width="100" height="30" border="0px none" borderRadius="15px" onclick="div_menu_btn_hr_onclick" cssclass="btn_normal"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_bookmark" taborder="2" text="즐겨찾기 설정" left="8" top="0" width="100" background="#10aea9" border="0px none" height="40" font="normal bold 10pt/normal &quot;Arial&quot;"/>
+        <ImageViewer id="img_email" taborder="3" left="1118" top="10" width="20" height="20" image="url('Img::ico_auth.png')" stretch="none" background="#10aea9" border="0px none"/>
+        <ImageViewer id="img_personal" taborder="4" left="1168" top="10" width="20" height="20" image="url('Img::ico_myinfo.png')" stretch="none" background="#10aea9" border="0px none"/>
+        <ImageViewer id="img_logout" taborder="5" left="1218" top="10" width="20" height="20" image="url('Img::ico_logout.png')" stretch="none" background="#10aea9" border="0px none" onclick="img_logout_onclick"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[include "Lib::Lib_main.xjs";
+
+this.div_menu_btn_hr_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var btn_nm;
+	
+	btn_nm = obj.id;
+	
+	if (btn_nm != "btn_ac") {this.div_menu.form.btn_ac.set_cssclass("btn_normal");}
+	if (btn_nm != "btn_bi") {this.div_menu.form.btn_bi.set_cssclass("btn_normal");}
+	if (btn_nm != "btn_ed") {this.div_menu.form.btn_ed.set_cssclass("btn_normal");}
+	if (btn_nm != "btn_et") {this.div_menu.form.btn_et.set_cssclass("btn_normal");}
+	if (btn_nm != "btn_gw") {this.div_menu.form.btn_gw.set_cssclass("btn_normal");}
+	if (btn_nm != "btn_hr") {this.div_menu.form.btn_hr.set_cssclass("btn_normal");}
+	if (btn_nm != "btn_pd") {this.div_menu.form.btn_mk.set_cssclass("btn_normal");}
+	if (btn_nm != "btn_sd") {this.div_menu.form.btn_sd.set_cssclass("btn_normal");}
+	
+	obj.set_cssclass("btn_line");
+	
+	btn_nm = btn_nm.replace("btn_","");
+	if ( nexacro.getApplication().gv_selectMenu != btn_nm)
+	{
+		if (system.navigatorname != 'nexacro')
+		{
+			MyHistory.setLocationHash(btn_nm, btn_nm); // 해쉬값에 메뉴 설정
+		}
+		this.lfn_OpenMenu(btn_nm);
+	}
+	
+};
+
+this.div_menu_img_logo_onclick = function(obj:nexacro.ImageViewer,e:nexacro.ClickEventInfo)
+{
+	nexacro.getApplication().gv_selectMenu = "";
+	this.lfn_WorkMain_open();
+};
+
+this.img_logout_onclick = function(obj:nexacro.ImageViewer,e:nexacro.ClickEventInfo)
+{
+	this.lfn_reLogin();
+};
+]]></Script>
+  </Form>
+</FDL>

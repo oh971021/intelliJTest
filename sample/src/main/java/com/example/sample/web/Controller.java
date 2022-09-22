@@ -6,15 +6,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @org.springframework.stereotype.Controller
 public class Controller {
 
-//    @RequestMapping(value = "/", method = RequestMethod.GET)
-//    public String getHome() { return "index"; }
-
+    /** 페이지 이동 컨트롤러_구JSP 방식의 잔재를 해결하기 위해.. */
     @RequestMapping(value = "/nexacro", method = RequestMethod.GET)
     public String getNexacro() { System.out.println("여긴?"); return "hr/jsptest"; }
 
-    @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public String setNexacro() { return "name"; }
-
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    /** 마이플랫폼 JSP .. */
+    @RequestMapping(value = "/name", method = RequestMethod.GET)
     public String getMiplatform() { return "name"; }
 }

@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="WorkBody01" width="1250" height="620" titletext="New Form" scrolltype="none">
+    <Layouts>
+      <Layout height="620" width="1250">
+        <Static id="Static00" taborder="0" left="0" top="0" width="1250" height="230" background="#f3f4f5"/>
+        <Div id="div_q01" taborder="1" left="0" top="30" width="290" height="170" background="white" borderRadius="10px">
+          <Layouts>
+            <Layout>
+              <ImageViewer id="ImageViewer00" taborder="0" left="32" top="17" width="78" height="81" image="url('Img::img_01.png')" stretch="fit" border="0px none"/>
+              <ImageViewer id="ImageViewer01" taborder="1" left="189" top="133" width="70" height="13" image="url('Img::btn_more.png')" stretch="fit" border="0px none"/>
+              <Static id="Static00" taborder="2" text="미결문서" left="31" top="97" height="29" right="167" color="#444444" font="normal 700 14pt/normal &quot;Arial&quot;"/>
+              <Static id="stt_count" taborder="3" text="문서 3건" left="31" top="125" height="29" right="167" color="#444444" font="normal 11pt/normal &quot;Arial&quot;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_q02" taborder="2" left="320" top="30" width="290" height="170" background="white" borderRadius="10px">
+          <Layouts>
+            <Layout>
+              <ImageViewer id="ImageViewer00" taborder="0" left="32" top="17" width="78" height="81" image="url('Img::img_02.png')" stretch="fit" border="0px none"/>
+              <ImageViewer id="ImageViewer01" taborder="1" left="189" top="133" width="70" height="13" image="url('Img::btn_more.png')" stretch="fit" border="0px none"/>
+              <Static id="Static00" taborder="2" text="진행문서" left="31" top="97" height="29" right="167" color="#444444" font="normal 700 14pt/normal &quot;Arial&quot;"/>
+              <Static id="stt_count" taborder="3" text="문서 3건" left="31" top="125" height="29" right="167" color="#444444" font="normal 11pt/normal &quot;Arial&quot;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_q03" taborder="3" left="640" top="30" width="290" height="170" background="white" borderRadius="10px">
+          <Layouts>
+            <Layout>
+              <ImageViewer id="ImageViewer00" taborder="0" left="32" top="17" width="78" height="81" image="url('Img::img_07.png')" stretch="fit" border="0px none"/>
+              <ImageViewer id="ImageViewer01" taborder="1" left="189" top="133" width="70" height="13" image="url('Img::btn_more.png')" stretch="fit" border="0px none"/>
+              <Static id="Static00" taborder="2" text="공유문서" left="31" top="97" height="29" right="167" color="#444444" font="normal 700 14pt/normal &quot;Arial&quot;"/>
+              <Static id="stt_count" taborder="3" text="문서 3건" left="31" top="125" height="29" right="167" color="#444444" font="normal 11pt/normal &quot;Arial&quot;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_q04" taborder="4" left="960" top="30" width="290" height="170" background="white" borderRadius="10px">
+          <Layouts>
+            <Layout>
+              <ImageViewer id="ImageViewer00" taborder="0" left="32" top="17" width="78" height="81" image="url('Img::img_06.png')" stretch="fit" border="0px none"/>
+              <ImageViewer id="ImageViewer01" taborder="1" left="189" top="133" width="70" height="13" image="url('Img::btn_more.png')" stretch="fit" border="0px none"/>
+              <Static id="Static00" taborder="2" text="완결문서" left="31" top="97" height="29" right="167" color="#444444" font="normal 700 14pt/normal &quot;Arial&quot;"/>
+              <Static id="stt_count" taborder="3" text="문서 3건" left="31" top="125" height="29" right="167" color="#444444" font="normal 11pt/normal &quot;Arial&quot;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static01" taborder="5" left="0" top="230" right="0" bottom="0" background="white"/>
+        <Grid id="Grid00" taborder="6" left="0" top="260" width="400" bottom="100" border="0px none,0px none,1px solid #bdc6ca" background="" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="367"/>
+                <Column size="30"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="40"/>
+              </Rows>
+              <Band id="head">
+                <Cell autosizecol="none" text="즐겨찾기 메뉴" font="normal 900 15px/normal &quot;Gulim&quot;" textAlign="left" padding="0px 0px 0px 5px" cssclass="Grid_head" border="1px none #cacaca,1px none #cacaca,2px solid #f3f4f5" background="white" color="#10aea9"/>
+                <Cell col="1" text="+" textAlign="right" padding="0px 10px 0px 0px" font="normal 900 15px/normal &quot;Gulim&quot;" border="1px none #cacaca,1px none #cacaca,2px solid #f3f4f5" color="#10aea9" background="white"/>
+              </Band>
+              <Band id="body">
+                <Cell colspan="2" border="0px solid #dbdee2" font="normal 15px/normal &quot;Gulim&quot;"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="Grid00_00" taborder="7" left="425" top="260" width="400" bottom="100" border="0px none,0px none,1px solid #bdc6ca" background="" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="367"/>
+                <Column size="30"/>
+              </Columns>
+              <Rows>
+                <Row size="40" band="head"/>
+                <Row size="40"/>
+              </Rows>
+              <Band id="head">
+                <Cell border="1px none #cacaca,1px none #cacaca,2px solid #f3f4f5" autosizecol="none" text="미결문서" font="normal 900 15px/normal &quot;Gulim&quot;" textAlign="left" padding="0px 0px 0px 5px" color="#10aea9" background="white"/>
+                <Cell col="1" border="1px none #cacaca,1px none #cacaca,2px solid #f3f4f5" text="+" textAlign="right" padding="0px 10px 0px 0px" font="normal 900 15px/normal &quot;Gulim&quot;" color="#10aea9" background="white"/>
+              </Band>
+              <Band id="body">
+                <Cell colspan="2" border="0px solid #dbdee2" font="normal 15px/normal &quot;Gulim&quot;"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Calendar id="Calendar00" taborder="8" left="850" top="259" width="400" bottom="30" type="monthonly" padding="0px" font="normal bold 10pt/normal &quot;Arial&quot;" borderRadius="10px"/>
+        <ImageViewer id="ImageViewer00" taborder="9" left="5" width="60" height="65" bottom="30" border="0px none" image="url('Img::ba_01.png')"/>
+        <ImageViewer id="ImageViewer00_00" taborder="10" left="275" width="60" height="65" bottom="30" border="0px none" image="url('Img::ba_02.png')"/>
+        <ImageViewer id="ImageViewer00_00_00" taborder="11" left="545" width="60" height="65" bottom="30" border="0px none" image="url('Img::ba_03.png')"/>
+        <Static id="Static02" taborder="12" text="직원 도서몰 &gt;" left="79" width="150" height="29" bottom="62" font="normal 900 12pt/normal &quot;Arial&quot;"/>
+        <Static id="Static02_00" taborder="13" text="직원 검색 &gt;" left="349" width="150" height="29" bottom="62" font="normal 900 12pt/normal &quot;Arial&quot;"/>
+        <Static id="Static02_00_00" taborder="14" text="사진 자료실 &gt;" left="619" width="150" height="29" bottom="62" font="normal 900 12pt/normal &quot;Arial&quot;"/>
+        <Static id="Static03" taborder="15" text="사내 직원용 도서주문" left="79" width="180" height="25" bottom="40" font="normal 10pt/normal &quot;Arial&quot;"/>
+        <Static id="Static03_00" taborder="16" text="천재교육 직원 검색" left="349" width="180" height="25" bottom="40" font="normal 10pt/normal &quot;Arial&quot;"/>
+        <Static id="Static03_00_00" taborder="17" text="사진, 영상 자료 모음" left="619" width="180" height="25" bottom="40" font="normal 10pt/normal &quot;Arial&quot;"/>
+      </Layout>
+    </Layouts>
+  </Form>
+</FDL>

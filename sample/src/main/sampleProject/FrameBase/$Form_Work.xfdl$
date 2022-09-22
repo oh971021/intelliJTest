@@ -30,7 +30,7 @@
             </Format>
           </Formats>
         </Grid>
-        <Grid id="Grid00_00" taborder="3" left="320" top="79" width="280" height="382" binddataset="Ds" autofittype="col">
+        <Grid id="Grid00_00" taborder="3" left="320" top="79" width="280" height="382" binddataset="MyDs" autofittype="col">
           <Formats>
             <Format id="default">
               <Columns>
@@ -71,13 +71,19 @@ this.fn_callback = function(svcId, eCode, eMsg)
 
 this.Button01_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
-	this.alert("제발...");
-	this.alert("과연...?");
+	this.transaction("select", "svc::test", "", "MyDs=output1", "", "fn_callback");
 };
 
 ]]></Script>
     <Objects>
       <Dataset id="Ds">
+        <ColumnInfo>
+          <Column id="SABUN" type="STRING" size="256"/>
+          <Column id="NAME" type="STRING" size="256"/>
+          <Column id="BIRTH" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="MyDs">
         <ColumnInfo>
           <Column id="SABUN" type="STRING" size="256"/>
           <Column id="NAME" type="STRING" size="256"/>

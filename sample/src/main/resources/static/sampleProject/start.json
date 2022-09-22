@@ -121,11 +121,29 @@
         },
         "resource" :
         {
-
+            "windows" : {
+                "updateurl" : "./",
+                "timeout" : "30",
+                "retry" : "3",
+                "autoupdate" : "auto",
+                "updatetype" : "server",
+            "common" : {
+                "updateurl" : "",
+                    "resources" :
+                    [{"type" : "Module", "file" : "nexacro17lib.zip", "targetpath" : "", "version" : "0"}]
+                }
+            }
         },
 		"deploy" :
         {
-
+            "windows" : {
+                "updateurl" : "./",
+            "common" : {
+                "updateurl" : "",
+                    "resources" :
+                    [{"type" : "Module", "file" : "nexacro17lib.zip", "targetpath" : "", "version" : "0"}]
+                }
+            }
         },
         "userfont" :
         [

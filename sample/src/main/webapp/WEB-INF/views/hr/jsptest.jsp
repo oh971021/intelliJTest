@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=euc-kr" %>
 <%@ include file="../dbconnect/dbconnect.jsp" %>
 <%
+	Statement stmt = null;
+	ResultSet rs   = null;
+
 	try {
 		stmt = con.createStatement();	
 		
@@ -12,22 +15,18 @@
 	  	pdata.addDataSet(makeDataSet(rs,"Ds"));	
 	
 		/** ErrorCode, ErrorMsg 처리하기 **/
-		VariableList varList = pdata.getVariableList();
-		varList.add("ErrorCode", 0);
-		varList.add("ErrorMsg", "SUCC");
+		resVarList.add("ErrorCode", 0);
+		resVarList.add("ErrorMsg", "SUCC");
 	} catch (Exception e) {
-		/** ErrorCode, ErrorMsg 처리하기 **/
-		VariableList varList = pdata.getVariableList();
-		varList.add("ErrorCode", -1);
-		varList.add("ErrorMsg", e.getMessage());
+		resVarList.add("ErrorCode", -1);
+		resVarList.add("ErrorMsg", e.getMessage());
+		e.printStackTrace();
 	} finally {
 		/** Database Close**/
-		if(rs   != null){	try{rs.close();}  catch(Exception e){nErrorCode = -1; strErrorMsg = e.getMessage();}}
-		if(stmt != null){	try{stmt.close();}catch(Exception e){nErrorCode = -1; strErrorMsg = e.getMessage();}}
-		if(con  != null){	try{con.close();} catch(Exception e){nErrorCode = -1; strErrorMsg = e.getMessage();}}
+		if(rs   != null){try{rs.close();  }catch(Exception e){SQLException se;}}
+		if(stmt != null){try{stmt.close();}catch(Exception e){SQLException se;}}
+		if(con  != null){try{con.close(); }catch(Exception e){SQLException se;}}
 	}
-
-	out.clear();
 
 	/** XML output 객체(PlatformResponse) 만들기 **/
 	HttpPlatformResponse res = new HttpPlatformResponse(response, PlatformType.CONTENT_TYPE_XML, "UTF-8");
