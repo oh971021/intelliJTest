@@ -1,0 +1,46 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.12-SNAPSHOT'
+	id 'io.spring.dependency-management' version '1.0.14.RELEASE'
+	id 'java'
+	id 'war'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
+	maven { url 'https://repo.spring.io/snapshot' }
+}
+
+dependencies {
+	/** Spring Boot */
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	/** MyBatis */
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4'
+
+	/** 외부라이브러리 */
+	implementation fileTree(dir: 'libs', includes: ['*.jar'])
+	
+	/** JSP 연동 */
+	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+	implementation 'javax.servlet:jstl'
+
+	/** 내장 톰캣 JSP엔진 의존 주입 */
+	implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-core'
+
+	/** Json */
+	implementation 'com.google.code.gson:gson:2.8.5'
+
+	/** 자동 리펙토링 엔진툴 */
+	developmentOnly("org.springframework.boot:spring-boot-devtools")
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

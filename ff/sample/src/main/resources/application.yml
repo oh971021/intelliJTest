@@ -1,0 +1,44 @@
+#### Server 세팅 ####
+server:
+  # Tomcat Server Port Setting
+  port: 8080
+  # JSP 수정 시 서버 재시작 없이 적용
+  servlet:
+    jsp:
+      registered: true
+    # 서버 인코딩 세팅
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+      force-response: true
+
+#### Spring 세팅 ####
+spring:
+  # 부트 시 중복 Bean 에러 해결
+  main:
+    allow-bean-definition-overriding: true
+  # Mybatis 연결
+  datasource:
+    driver-class-name: com.tmax.tibero.jdbc.TbDriver
+    url: jdbc:tibero:thin:@localhost:8629:tbtest
+    username: sys
+    password: 1234
+  # Json 셋팅
+  mvc:
+    converters:
+      preferred-json-mapper: gson
+  # 자동 리펙토링 (수정 시 즉각 반영)
+  devtools:
+    livereload:
+      enabled: true
+    remote:
+      restart:
+        enabled: true
+  freemarker:
+    cache: false
+
+#### Mybatis 세팅 ####
+mybatis:
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:mapper/*.xml
