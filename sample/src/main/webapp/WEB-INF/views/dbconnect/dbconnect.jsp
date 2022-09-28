@@ -33,6 +33,7 @@
 	Connection con = null;
 
 	String url="jdbc:tibero:thin:@localhost:8629:tbtest";
+	Class.forName("com.tmax.tibero.jdbc.TbDriver");
 	con = DriverManager.getConnection(url,"sys","1234");
 %>
 

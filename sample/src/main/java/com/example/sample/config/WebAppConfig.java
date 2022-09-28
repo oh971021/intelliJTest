@@ -60,8 +60,7 @@ public class WebAppConfig implements WebMvcConfigurer {
     public SessionLocaleResolver localeResolver() {
         return new SessionLocaleResolver();
     }
-    //
-//    // 언어 변경을 위한 인터셉터를 생성
+    // 언어 변경을 위한 인터셉터를 생성
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor() {
         LocaleChangeInterceptor interceptor = new LocaleChangeInterceptor();

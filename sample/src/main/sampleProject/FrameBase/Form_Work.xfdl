@@ -55,10 +55,10 @@
             </Format>
           </Formats>
         </Grid>
+        <Static id="Static00" taborder="4" text="변겨완" left="355" top="130" width="65" height="20"/>
       </Layout>
     </Layouts>
-    <Script type="xscript5.1"><![CDATA[
-this.Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+    <Script type="xscript5.1"><![CDATA[this.Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
 	this.transaction("select", "svc::nexacro", "", "Ds=Ds", "", "fn_callback");
 };
@@ -68,13 +68,12 @@ this.fn_callback = function(svcId, eCode, eMsg)
 	if (eCode != 0) this.alert(eMsg);
 }
 
-
-this.Button01_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+this.Button01_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
 {
-	this.transaction("select", "svc::test", "", "MyDs=output1", "", "fn_callback");
-};
-
-]]></Script>
+	this.alert("하위");
+	
+	this.transaction("select", "svc::test", "", "MyDs=output", "", "fn_callback");
+}]]></Script>
     <Objects>
       <Dataset id="Ds">
         <ColumnInfo>

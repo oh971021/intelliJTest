@@ -13,20 +13,30 @@ server:
       force: true
       force-response: true
 
-## 암호화
-#jasypt:
-#  encryptor:
-#    bean: jasyptStringEncryptor
+### 암호화 ####
+jasypt:
+  encryptor:
+    bean: jasyptStringEncryptor
+    algorithm: PBEWithMD5AndDES
+    pool-size: 2
+    string-output-type: base64
+    key-obtention-iterations: 100000
 #    password: 5678
 
 #### Spring 세팅 ####
 spring:
   # Mybatis 연결
   datasource:
-    driver-class-name: com.tmax.tibero.jdbc.TbDriver
-    url: jdbc:tibero:thin:@localhost:8629:tbtest
-    username: sys
-    password: 1234
+    tomcat:
+      max-wait: 10000
+      max-active: 50
+      test-on-borrow: true
+    hikari:
+      jdbc-url: ENC(T/qeLJY8CKGJPCc8N5YoEiG/5grDA0JNibDL/BbNCbmt2lbKsrkVo97XgLfGaj+z)
+      driver-class-name: com.tmax.tibero.jdbc.TbDriver
+      username: ENC(BURCKEnbZFZS4FFwgwDpWA==)
+      password: ENC(pw1HnsuThMVw0tsywAdhLw==)
+
   # 부트 시 중복 Bean 에러 해결
   main:
     allow-bean-definition-overriding: true
@@ -39,9 +49,14 @@ spring:
         enabled: true
   freemarker:
     cache: false
+  # MyBatis Json 형식
   mvc:
     converters:
       preferred-json-mapper: gson
+  # JDBC Platform 설정
+  sql:
+    init:
+      platform: tibero
 
 #### Mybatis 세팅 ####
 mybatis:

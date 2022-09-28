@@ -50,6 +50,11 @@
             obj.set_autofittype("col");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row band=\"head\" size=\"24\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"SABUN\"/><Cell col=\"1\" text=\"NAME\"/><Cell col=\"2\" text=\"BIRTH\"/></Band><Band id=\"body\"><Cell text=\"bind:SABUN\"/><Cell col=\"1\" text=\"bind:NAME\"/><Cell col=\"2\" text=\"bind:BIRTH\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
+
+            obj = new Static("Static00","355","130","65","20",null,null,null,null,null,null,this);
+            obj.set_taborder("4");
+            obj.set_text("변겨완");
+            this.addChild(obj.name, obj);
             // Layout Functions
             //-- Default Layout : this
             obj = new Layout("default","Desktop_screen",1280,720,this,function(p){});
@@ -69,7 +74,6 @@
         
         // User Script
         this.registerScript("Form_Work.xfdl", function() {
-
         this.Button00_onclick = function(obj,e)
         {
         	this.transaction("select", "svc::nexacro", "", "Ds=Ds", "", "fn_callback");
@@ -80,13 +84,12 @@
         	if (eCode != 0) this.alert(eMsg);
         }
 
-
-        this.Button01_onclick = function(obj,e)
+        this.Button01_onclick = function(obj, e)
         {
-        	this.transaction("select", "svc::test", "", "MyDs=output1", "", "fn_callback");
-        };
+        	this.alert("하위");
 
-
+        	this.transaction("select", "svc::test", "", "MyDs=output", "", "fn_callback");
+        }
         });
         
         // Regist UI Components Event
